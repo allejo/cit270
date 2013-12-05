@@ -1,0 +1,5 @@
+a = 17
+y = 3
+x = 10
+Postfix expression: x y a + * Value: 200
+Postfix expression: a a + x y / * Value: 102
