@@ -12,11 +12,6 @@ public class FileEditor
 {
     private File   file;
     private String filePath;
-    private String fileParent;
-    private String fileName;
-    private String fileNameWithoutExtension;
-    private String extension;
-    private long   size;
     private int    lineCount;
 
     /**
@@ -45,20 +40,7 @@ public class FileEditor
 
         file       = _file;
         filePath   = _file.getCanonicalPath();
-        fileParent = _file.getCanonicalFile().getParent() + File.separator;
-        fileName   = _file.getName();
-        size       = _file.length();
         lineCount  = countLines();
-
-        if (!_file.isDirectory() && fileName.lastIndexOf(".") >= 0)
-        {
-            fileNameWithoutExtension = fileName.substring(0, fileName.lastIndexOf("."));
-            extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-        }
-        else
-        {
-            fileNameWithoutExtension = fileName;
-        }
     }
 
     /**
@@ -112,114 +94,6 @@ public class FileEditor
     }
 
     /**
-     * Modify the contents of a text file by rewriting a line
-     *
-     * @param mode              'add', 'edit', or 'remove'
-     * @param lineNumber        The line number we will be editing
-     * @param textToAddOrRemove The text we will be writing to the file or NULL if removing a line
-     */
-    public void edit (String mode, int lineNumber, String textToAddOrRemove) throws IOException
-    {
-        int myLineNumber = 0; //The line number of the file being read
-        String line; //The line that is currently being read
-        FileEditor newFile = createFile(filePath + "_new");
-
-        Scanner myFile = new Scanner(new File(filePath)); //Open the file
-
-        while (myFile.hasNext()) //Read through the file
-        {
-            line = myFile.nextLine(); //Store the line of text
-            myLineNumber++; //Increase the line number
-
-            if (mode.equals("add")) //Check the mode
-            {
-                newFile.writeToFile(line);
-
-                if (myLineNumber == lineNumber) //If the line number is equal
-                {
-                    newFile.writeToFile(textToAddOrRemove); //Write the new line after
-                }
-            }
-            else if (mode.equals("edit"))
-            {
-                if (myLineNumber == lineNumber)
-                {
-                    newFile.writeToFile(textToAddOrRemove); //Write the new line instead of the existing line
-                }
-                else //Continue writing the existing lines
-                {
-                    newFile.writeToFile(line);
-                }
-            }
-            else if (mode.equals("remove"))
-            {
-                if (myLineNumber != lineNumber) //Continue writing the existing lines
-                {
-                    newFile.writeToFile(line);
-                }
-            }
-            else //Catch any errors with the mode
-            {
-                return;
-            }
-        }
-
-        myFile.close(); //Close the file
-        System.gc();
-
-        new File(filePath).delete(); //Delete the old file
-        new File(newFile.filePath).renameTo(new File(filePath)); //Rename the new file to the same name as the old one
-    }
-
-    /**
-     * @return The extension of the file
-     */
-    public String get_extension ()
-    {
-        return this.extension;
-    }
-
-    /**
-     * @return The file object
-     */
-    public File get_file ()
-    {
-        return this.file;
-    }
-
-    /**
-     * @return Return the path to the file
-     */
-    public String get_file_path ()
-    {
-        return this.filePath;
-    }
-
-    /**
-     * @return Return the path to the parent of the file
-     */
-    public String get_file_parent ()
-    {
-        return this.fileParent;
-    }
-
-    /**
-     * @return The file name with the extension
-     */
-    public String get_file_name ()
-    {
-        return this.fileName;
-    }
-
-    /**
-     * @return The file name without the extension
-     */
-    public String get_file_name_wo_extension ()
-    {
-        return this.fileNameWithoutExtension;
-    }
-
-    /**
      * Returns the total number of lines a file has
      *
      * @return The total amount of lines
@@ -227,14 +101,6 @@ public class FileEditor
     public int get_line_count ()
     {
         return this.lineCount;
-    }
-
-    /**
-     * @return The file name without the extension
-     */
-    public String get_size ()
-    {
-        return String.valueOf(this.size);
     }
 
     /**
