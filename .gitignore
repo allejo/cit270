@@ -6,6 +6,7 @@
 *.ear
 
 out/
+.idea
 
 # OS generated files
 .DS_Store
