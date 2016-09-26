@@ -20,7 +20,7 @@ sub parse_db {
     open (my $fh, '<', $db_loc);
 
     while (my $line = <$fh>) {
-        my @values = split(':', $line);
+        my @values = split(':', $line, 2);
 
         chomp($values[1]);
 
