@@ -110,6 +110,8 @@ sub modify_user {
     my $n_password = <>;
     chomp($n_password);
 
+    $n_password =~ s/\'//g;
+
     $db->{$username} = $n_password;
 }
 
