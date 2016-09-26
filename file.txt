@@ -1,0 +1,2 @@
+einstein:e=mc^2
+newton:force=mass*accelaration
