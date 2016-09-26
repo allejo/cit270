@@ -68,8 +68,7 @@ sub add_user {
     my $username = <>;
     chomp($username);
 
-    $username =~ s/[^a-zA-Z0-9]//g;
-    $username = lc($username);
+    $username = sanitize_username($username);
 
     if (exists $db->{$username}) {
         print "Username already exists!\n";
@@ -80,7 +79,7 @@ sub add_user {
     my $password = <>;
     chomp($password);
 
-    $password =~ s/\'//g;
+    $password = sanitize_password($password);
 
     $db->{$username} = $password;
 }
@@ -110,7 +109,7 @@ sub modify_user {
     my $n_password = <>;
     chomp($n_password);
 
-    $n_password =~ s/\'//g;
+    $n_password = sanitize_password($n_password);
 
     $db->{$username} = $n_password;
 }
@@ -137,6 +136,23 @@ sub generate_list {
     foreach my $key (keys $db) {
         print $key, ":", $db->{$key}, "\n";
     }
+}
+
+sub sanitize_username {
+    my $username = shift;
+
+    $username =~ s/[^a-zA-Z0-9]//g;
+    $username = lc($username);
+
+    return $username;
+}
+
+sub sanitize_password {
+    my $password = shift;
+
+    $password =~ s/\'//g;
+
+    return $password;
 }
 
 1;
