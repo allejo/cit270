@@ -43,7 +43,7 @@ sub save_file {
     if ($save eq 'y') {
         open (my $fh, '>', $db_loc);
 
-        foreach my $key (keys $db) {
+        foreach my $key (keys %$db) {
             print $fh $key, ":", $db->{$key}, "\n";
         }
 
@@ -133,7 +133,7 @@ sub remove_user {
 sub generate_list {
     my $db = shift;
 
-    foreach my $key (keys $db) {
+    foreach my $key (keys %$db) {
         print $key, ":", $db->{$key}, "\n";
     }
 }
