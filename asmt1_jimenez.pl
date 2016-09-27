@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use asmt1_jimenez;
+use functs_jimenez;
 
 print "\nEnter file to open: ";
 my $db_loc = <>;

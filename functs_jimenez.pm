@@ -1,4 +1,4 @@
-package asmt1_jimenez;
+package functs_jimenez;
 
 use strict;
 use warnings;
