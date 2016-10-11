@@ -7,8 +7,12 @@ class UserManager(object):
 
     def read_db(self):
         self.file_path = input('Enter file to open: ')
-        lines = [line.rstrip('\n') for line in open(self.file_path, 'r')]
-        self.user_db = dict(user.split(':', 1) for user in lines)
+
+        try:
+            lines = [line.rstrip('\n') for line in open(self.file_path, 'r')]
+            self.user_db = dict(user.split(':', 1) for user in lines)
+        except FileNotFoundError:
+            self.user_db = dict()
 
     def help_msg(self):
         print('')
@@ -27,7 +31,7 @@ class UserManager(object):
         if not save.lower() == 'y':
             return 1
 
-        with open(self.file_path, 'r+') as f:
+        with open(self.file_path, 'w+') as f:
             for user, passwd in self.user_db.items():
                 print('{0}:{1}'.format(user, passwd), file=f)
 
@@ -82,7 +86,7 @@ class UserManager(object):
         print('User removed')
 
         return 0
-        
+
     def _get_sanitized_username(self, message):
         username = input(message)
 
