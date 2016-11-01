@@ -68,8 +68,6 @@ proc print_table {ptable} {
 	}
 }
 
-################################################################
-# Write partition table
 proc write_table {ptable filePath} {
 	upvar $ptable table
 	set fileHandle [open $filePath w]
