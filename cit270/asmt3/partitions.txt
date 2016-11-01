@@ -1,0 +1,3 @@
+/dev/sda3 263 458 395136 83 Linux
+/dev/sda1 1 196 395104 83 Linux
+/dev/sda2 197 262 133056 82 Swap
