@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalog>
+  <semester name="Fall 2016">
+    <class>
+      <dept>CIT</dept>
+      <number>270/L</number>
+      <title>Integrative Programming</title>
+      <prereq>CIT 160/L, COMP 182L</prereq>
+    </class>
+    <class>
+      <dept>CIT</dept>
+      <number>210/L</number>
+      <title>Deployment and Management of Operating Systems</title>
+      <prereq>CIT 101/L, COMP 122/L</prereq>
+    </class>
+    <class>
+      <dept>IS</dept>
+      <number>431</number>
+      <title>System and Analysis and Design</title>
+      <prereq>IS 312</prereq>
+    </class>
+    <class>
+      <dept>IS</dept>
+      <number>435</number>
+      <title>Business Data Communications and Networks</title>
+      <prereq>IS 312</prereq>
+    </class>
+  </semester>
+  <semester name="Fall 2017">
+    <class>
+      <dept>CIT</dept>
+      <number>360</number>
+      <title>System Administration and Management</title>
+      <prereq>CIT 210/L, CIT 270/L</prereq>
+    </class>
+    <class>
+      <dept>IS</dept>
+      <number>441</number>
+      <title>Database Management</title>
+      <prereq>IS 312</prereq>
+    </class>
+    <class>
+      <dept>IS</dept>
+      <number>451</number>
+      <title>Systems Development</title>
+      <prereq>IS 431, IS 435</prereq>
+    </class>
+    <class>
+      <dept>ART</dept>
+      <number>301</number>
+      <title>Web Design</title>
+      <prereq>ART 200</prereq>
+    </class>
+  </semester>
+  <semester name="Summer 2017">
+    <class>
+      <dept>COMP</dept>
+      <number>484/L</number>
+      <title>Web Engineering I</title>
+      <prereq>CIT 360, IS 435</prereq>
+    </class>
+  </semester>
+  <semester name="Fall 2018">
+    <class>
+      <dept>CIT</dept>
+      <number>480/L</number>
+      <title>System Design and Implementation I</title>
+      <prereq>COMP 484/L, IS 451</prereq>
+    </class>
+    <class>
+      <dept>COMP</dept>
+      <number>424</number>
+      <title>Computer System Security</title>
+      <prereq>CIT 360, IS 435</prereq>
+    </class>
+    <class>
+      <dept>COMP</dept>
+      <number>485</number>
+      <title>Human Computer Interaction</title>
+      <prereq>CIT 101/L, COMP 122/L</prereq>
+    </class>
+    <class>
+      <dept>ART</dept>
+      <number>354</number>
+      <title>Computer Graphics</title>
+      <prereq>ART 200, ART 244</prereq>
+    </class>
+  </semester>
+  <semester name="Spring 2018">
+    <class>
+      <dept>CIT</dept>
+      <number>481/L</number>
+      <title>System Design and Implementation II</title>
+      <prereq>CIT 360, IS 451</prereq>
+    </class>
+  </semester>
+</catalog>
